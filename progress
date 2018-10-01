@@ -1,0 +1,25 @@
+## 9/29 ##
+added weeklyTodo functionality
+had to make it's own reducer and action file
+added page for weekly todos with it's own weekly file list item
+kept todolistitem reusable
+
+
+## 9/30 ##
+add todo functionality
+changed list items to input to allow editing of todos
+refactored store to include list value
+combined all todo actions
+added filters to filter by list at the moment
+added filter buttons at the top of todo page
+
+## 10/1 ##
+move addTodo to bottom of list
+remove link at top of page
+fix routing to include only one todo page 
+delete last of un-needed weeklyTodo files 
+
+## next time ## 
+add ability to move weekly items to daily list
+add a cross out functionality (keep items on screen after finishing)
+

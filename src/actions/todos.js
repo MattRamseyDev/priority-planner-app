@@ -3,12 +3,12 @@ import uuid from 'uuid';
 // Action Generators
 
 // ADD_TODO
-export const addTodo = ({ description, list, completed = false }) => ({
+export const addTodo = ({ description, lists, completed = false }) => ({
     type: 'ADD_TODO',
     todo: {
         id: uuid(),
         description,
-        list,
+        lists,
         completed
     }
 })

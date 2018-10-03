@@ -18,10 +18,10 @@ store.subscribe(() => {
     console.log(visibleTodos);
 });
 
-store.dispatch(addTodo({ description: 'read', list:'day' }))
-store.dispatch(addTodo({ description: 'walk dog', list: 'day'}));
-store.dispatch(addTodo({ description: 'pay taxes', list: 'week'}));
-store.dispatch(addTodo({ description: 'clean apt', list: 'week'}));
+store.dispatch(addTodo({ description: 'read', lists:['day', 'week']}))
+store.dispatch(addTodo({ description: 'walk dog', lists: ['day']}));
+store.dispatch(addTodo({ description: 'pay taxes', lists: ['week']}));
+store.dispatch(addTodo({ description: 'clean apt', lists: ['week']}));
 
 const jsx = (
     <Provider store={store}>

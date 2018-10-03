@@ -1,6 +1,6 @@
 
 export default (todos, {list}) => {
     return todos.filter((todo) => {
-        return todo.list === list;
+        return todo.lists.includes(list);
     })
 }

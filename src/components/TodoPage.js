@@ -7,7 +7,7 @@ import TodoListFilter from './TodoListFilter';
 
 const TodoPage = (props) => (
     <div>
-        <TodoListFilter />
+        <TodoListFilter currentList={props.filters.list}/>
         {props.filters.list === 'day' ? <h3>Daily Todo List</h3> : <h3>Weekly Todo List</h3>}
         <TodoList />
         <AddTodo

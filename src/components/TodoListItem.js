@@ -12,11 +12,15 @@ const TodoListItem = (props) => (
             //keeping the component reusable
             props.onRemove({
                 id: props.id
-            });
-        } 
-        }>
-            Done
-        </button>
+            })} 
+        }>Done</button>
+        {props.filter.list === 'week' && !props.lists.includes('day') &&  
+            <button onClick={(e) => {
+                props.onChangeList({ lists: [...props.lists, 'day'] })
+                console.log(props.filter)
+            }}
+            >Add To Daily List</button>
+        }
     </div>
 )
 

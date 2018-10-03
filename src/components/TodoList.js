@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from "react-redux";
 import TodoListItem from './TodoListItem';
-import {removeTodo, editTodo} from '../actions/todos';
+import {removeTodo, editTodo, toggleCompleted} from '../actions/todos';
 import selectTodos from '../selectors/todos';
-import { setListFilter } from '../actions/filters';
 
 const TodoList = (props) => (
     <div>
@@ -13,7 +12,7 @@ const TodoList = (props) => (
                 {...todo} 
                 key={todo.id}  
                 filter={props.filters}
-                onRemove={(id) => props.dispatch(removeTodo(id))}
+                onComplete={() => props.dispatch(toggleCompleted(todo.id, todo.completed))}
                 onChange={(update) => props.dispatch(editTodo(todo.id, update))}
                 onChangeList={(update) => props.dispatch(editTodo(todo.id, update))}
                 />

@@ -1,7 +1,8 @@
 
 
 const filtersReducerDefualtState = {
-    list: 'day'
+    list: 'day',
+    completed: false
 }
 
 export default (state = filtersReducerDefualtState, action) => {

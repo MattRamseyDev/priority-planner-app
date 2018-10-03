@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'; 
 import AppRouter from './routers/AppRouter'
 import configureStore from './store/configureStore';
-import {addTodo } from './actions/todos';
+import {addTodo, toggleCompleted } from './actions/todos';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
-import { setListFilter } from './actions/filters';
 import getVisibleTodos from './selectors/todos';
 
 const store = configureStore();
@@ -15,7 +14,7 @@ store.subscribe(() => {
     const state = store.getState();
     const visibleTodos = getVisibleTodos(state.todos, state.filters);
     console.log(state);
-    console.log(visibleTodos);
+    // console.log(visibleTodos);
 });
 
 store.dispatch(addTodo({ description: 'read', lists:['day', 'week']}))

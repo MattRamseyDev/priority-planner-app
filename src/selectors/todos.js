@@ -1,6 +1,6 @@
 
-export default (todos, {list}) => {
+export default (todos, {list, completed}) => {
     return todos.filter((todo) => {
-        return todo.lists.includes(list);
+        return todo.lists.includes(list) && todo.completed === completed;
     })
 }

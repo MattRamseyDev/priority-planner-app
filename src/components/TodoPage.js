@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import TodoList from './TodoList';
+import CompletedList from './CompletedList';
 import AddTodo from './AddTodo';
 import { addTodo } from '../actions/todos';
 import TodoListFilter from './TodoListFilter';
@@ -12,9 +13,10 @@ const TodoPage = (props) => (
         <TodoList />
         <AddTodo
             onSubmit={(todo) => {
-                props.dispatch(addTodo({ ...todo, list: props.filters.list }))
+                props.dispatch(addTodo({ ...todo, lists: [props.filters.list] }))
             }}
         />
+        <CompletedList />
     </div>
 )
 

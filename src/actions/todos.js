@@ -19,6 +19,13 @@ export const removeTodo = ({ id } = {}) => ({
     id
 })
 
+// TOGGLE_COMPLETED
+export const toggleCompleted = (id, completed) => ({
+    type: 'TOGGLE_COMPLETED',
+    id,
+    completed
+})
+
 // EDIT_TODO
 export const editTodo = (id, updates) => ({
     type: 'EDIT_TODO',

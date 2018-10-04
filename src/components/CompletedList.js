@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import selectTodos from '../selectors/todos';
+import {getVisibleTodos} from '../selectors/todos';
 import CompletedListItem from './CompletedListItem';
 import { toggleCompleted } from '../actions/todos';
 
@@ -21,7 +21,7 @@ const CompletedList = (props) => (
 )
 
 const mapStateToProps = (state) => ({
-    todos: selectTodos(state.todos, {...state.filters, completed: true })
+    todos: getVisibleTodos(state.todos, {...state.filters, completed: true })
 })
 
 export default connect(mapStateToProps)(CompletedList);

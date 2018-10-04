@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { setListFilter } from '../actions/filters';
+import {getTodosInList} from '../selectors/todos';
 
 const TodoListFilter = (props) => (
     <div>
@@ -8,17 +9,19 @@ const TodoListFilter = (props) => (
             value='day' 
             onClick={(e) => props.dispatch(setListFilter(e.target.value))}
         >
-        Today</button>
+        Today ({props.dailyTodos.length})</button>
         <button
             value='week'
             onClick={(e) => props.dispatch(setListFilter(e.target.value))}
         >
-        This Week</button>
+        This Week ({props.weeklyTodos.length})</button>
     </div>
 );
 
 const mapStateToProps = (state) => {
     return {
+        dailyTodos: getTodosInList(state.todos, 'day'),
+        weeklyTodos: getTodosInList(state.todos, 'week'),
         filters: state.filters
     }
 }

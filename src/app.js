@@ -6,7 +6,7 @@ import configureStore from './store/configureStore';
 import {addTodo, toggleCompleted } from './actions/todos';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
-import getVisibleTodos from './selectors/todos';
+import {getVisibleTodos} from './selectors/todos';
 
 const store = configureStore();
 

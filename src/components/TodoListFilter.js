@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { setListFilter } from '../actions/filters';
-import {getTodosInList} from '../selectors/todos';
+import {getVisibleTodos} from '../selectors/todos';
 
 const TodoListFilter = (props) => (
     <div>
@@ -20,8 +20,8 @@ const TodoListFilter = (props) => (
 
 const mapStateToProps = (state) => {
     return {
-        dailyTodos: getTodosInList(state.todos, 'day'),
-        weeklyTodos: getTodosInList(state.todos, 'week'),
+        dailyTodos: getVisibleTodos(state.todos, {list: 'day', completed: false}),
+        weeklyTodos: getVisibleTodos(state.todos, {list: 'week', completed: false}),
         filters: state.filters
     }
 }

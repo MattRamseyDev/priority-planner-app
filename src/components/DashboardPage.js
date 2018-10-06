@@ -1,8 +1,9 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const DashboardPage = () => (
     <div>
-        <p>This is the dashboard page</p> 
+        <Link to='/priorities'>Priorities</Link>
     </div>
 )
 

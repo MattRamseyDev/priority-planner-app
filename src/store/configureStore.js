@@ -1,13 +1,15 @@
 import { createStore, combineReducers } from 'redux';
 import todosReducer from '../reducers/todos';
-import filtersReducer from '../reducers/filters'
+import filtersReducer from '../reducers/filters';
+import prioritiesReducer from '../reducers/priorities';
 
 export default () => {
     // ONE REDUCER FOR EACH ROOT PROPERTY OF STORE
     const store = createStore(
         combineReducers({
             todos: todosReducer,
-            filters: filtersReducer
+            filters: filtersReducer,
+            priorities: prioritiesReducer
         }),
         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     );

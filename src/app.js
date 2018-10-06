@@ -4,9 +4,10 @@ import { Provider } from 'react-redux';
 import AppRouter from './routers/AppRouter'
 import configureStore from './store/configureStore';
 import {addTodo, toggleCompleted } from './actions/todos';
+import { addPriority } from './actions/priorities';
+import { getVisibleTodos } from './selectors/todos';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
-import {getVisibleTodos} from './selectors/todos';
 
 const store = configureStore();
 
@@ -21,6 +22,8 @@ store.dispatch(addTodo({ description: 'read', lists:['day', 'week']}))
 store.dispatch(addTodo({ description: 'walk dog', lists: ['day']}));
 store.dispatch(addTodo({ description: 'pay taxes', lists: ['week']}));
 store.dispatch(addTodo({ description: 'clean apt', lists: ['week']}));
+store.dispatch(addPriority('LOVE'));
+store.dispatch(addPriority('Growth'));
 
 const jsx = (
     <Provider store={store}>

@@ -14,7 +14,15 @@ const TodoList = (props) => (
                 filter={props.filters}
                 onComplete={() => props.dispatch(toggleCompleted(todo.id, todo.completed))}
                 onChange={(update) => props.dispatch(editTodo(todo.id, update))}
-                onChangeList={(update) => props.dispatch(editTodo(todo.id, update))}
+                onChangeList={(update) => {
+                    if (!!update.lists.length) {
+                        // if the todo still has list items, update array
+                        props.dispatch(editTodo(todo.id, update))
+                    } else {
+                        // else remove todo altogether
+                        props.dispatch(removeTodo({id: todo.id}))
+                    }
+                    }}
                 />
             })
         }

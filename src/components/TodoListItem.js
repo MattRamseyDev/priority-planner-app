@@ -16,6 +16,13 @@ const TodoListItem = (props) => (
             }}
             >Add To Daily List</button>
         }
+            <button onClick={(e) => {
+                const newLists = props.lists.filter(item => item != props.filter.list)
+                props.onChangeList({lists: [...newLists]})
+            }}
+
+            >Remove from list</button>
+        
     </div>
 )
 

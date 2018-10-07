@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PrioritiesListItem from './PrioritiesListItem';
+import {editPriority} from '../actions/priorities';
 
 const PrioritiesList = (props) => (
     <div>
@@ -9,6 +10,9 @@ const PrioritiesList = (props) => (
                 return <PrioritiesListItem 
                     key={priority.id} 
                     {...priority}
+                    onChange={(update) => {
+                        props.dispatch(editPriority(priority.id, update))
+                    }}
                 />
             })
         }

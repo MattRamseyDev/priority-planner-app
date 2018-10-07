@@ -1,4 +1,5 @@
 import _ from 'underscore';
+import moment from 'moment';
 
 const todoReducerDefaultState = [];
 
@@ -24,7 +25,7 @@ export default (state = todoReducerDefaultState, action) => {
         case 'TOGGLE_COMPLETED':
             return state.map((todo) => {
                 if (todo.id === action.id){
-                    return {...todo, completed: !action.completed};
+                    return {...todo, completed: !action.completed, completedAt: moment()};
                 } else {
                     return todo;
                 }

@@ -15,6 +15,8 @@ export default (state = prioritiesReducerDefaultState, action) => {
                     return priority;
                 }
             });
+        case 'REMOVE_PRIORITY':
+            return state.filter(priority => priority.id !== action.id);
         default:
             return state;
     }

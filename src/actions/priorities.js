@@ -9,9 +9,15 @@ export const addPriority = (priorityText) => ({
     }
 })
 
-// EDIT PRIORITY
+// EDIT_PRIORITY
 export const editPriority = (id, updates) => ({
     type: 'EDIT_PRIORITY',
     id,
     updates
+})
+
+// REMOVE_PRIORITY
+export const removePriority = (id) => ({
+    type: 'REMOVE_PRIORITY',
+    id
 })

@@ -8,3 +8,10 @@ export const addPriority = (priorityText) => ({
         text: priorityText
     }
 })
+
+// EDIT PRIORITY
+export const editPriority = (id, updates) => ({
+    type: 'EDIT_PRIORITY',
+    id,
+    updates
+})

@@ -7,6 +7,10 @@ const PrioritiesListItem = (props) => (
             // onChange={props.onChange((e) => e.target.value)}
             onChange={(e) => props.onChange({ text: e.target.value })}
         />
+        <button onClick={() => {
+                props.onRemove();
+            }
+        }>X</button>
     </div>
 )
 

@@ -23,7 +23,6 @@ export default (state = prioritiesReducerDefaultState, action) => {
                 priority.rank = index;
                 return priority
             })
-            return action.newPrioritiesArray;
         default:
             return state;
     }

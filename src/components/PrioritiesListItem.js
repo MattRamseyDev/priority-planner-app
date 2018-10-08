@@ -2,7 +2,6 @@ import React from 'react';
 
 const PrioritiesListItem = (props) => (
     <div>
-        {/* <span>{props.rank + 1}</span> */}
         <input type='number'
             value={props.rank + 1}
             onChange={ (e) => 
@@ -17,7 +16,6 @@ const PrioritiesListItem = (props) => (
         />
         <input type='text'
             value={props.text}
-            // onChange={props.onChange((e) => e.target.value)}
             onChange={(e) => props.onTextChange({ text: e.target.value })}
         />
         <button onClick={() => {

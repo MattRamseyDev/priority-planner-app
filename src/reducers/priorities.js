@@ -5,6 +5,7 @@ const prioritiesReducerDefaultState = [];
 export default (state = prioritiesReducerDefaultState, action) => {
     switch (action.type){
         case 'ADD_PRIORITY':
+            action.priority.rank = state.length;
             return [...state, action.priority];
         case 'EDIT_PRIORITY':
             return state.map(priority => {
@@ -21,3 +22,17 @@ export default (state = prioritiesReducerDefaultState, action) => {
             return state;
     }
 }
+
+// current priority state = 
+// [
+//     {
+//         id: 'dskalskfjf-a920293',
+//         text: 'priority text',
+//         rank: 0
+//     },
+//     {
+//         id: 'sdaf-jds',
+//         text: 'other priority text',
+//         rank: 1
+//     }
+// ]

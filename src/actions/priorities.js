@@ -1,11 +1,12 @@
 import uuid from 'uuid';
 
 // ADD_PRIORITY
-export const addPriority = (priorityText) => ({
+export const addPriority = (priorityText, rank = 0) => ({
     type: 'ADD_PRIORITY',
     priority : {
         id: uuid(),
-        text: priorityText
+        text: priorityText,
+        rank
     }
 })
 

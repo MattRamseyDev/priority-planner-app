@@ -22,3 +22,9 @@ export const removePriority = (id) => ({
     type: 'REMOVE_PRIORITY',
     id
 })
+
+// CHANGE_PRIORITY_ORDER
+export const changePriorityOrder = (newPrioritiesArray) => ({
+    type: 'CHANGE_PRIORITY_ORDER',
+    newPrioritiesArray
+})

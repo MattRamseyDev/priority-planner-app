@@ -18,6 +18,12 @@ export default (state = prioritiesReducerDefaultState, action) => {
             });
         case 'REMOVE_PRIORITY':
             return state.filter(priority => priority.id !== action.id);
+        case 'CHANGE_PRIORITY_ORDER':
+            return action.newPrioritiesArray.map((priority, index) => {
+                priority.rank = index;
+                return priority
+            })
+            return action.newPrioritiesArray;
         default:
             return state;
     }

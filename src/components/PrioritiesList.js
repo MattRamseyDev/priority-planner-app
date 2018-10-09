@@ -17,9 +17,11 @@ const PrioritiesList = (props) => (
                     }}
                     onRankChange={
                         (newRank) => {
-                            props.dispatch(changePriorityOrder(arrayMove(props.priorities, priority.rank, newRank)))
-                            }
-                        }
+                                newRank > priority.rank 
+                                    ? props.dispatch(changePriorityOrder(arrayMove(props.priorities, priority.rank, priority.rank - 1)))
+                                    : props.dispatch(changePriorityOrder(arrayMove(props.priorities, priority.rank, priority.rank + 1)));
+                        }   
+                    }
                     onRemove={() => props.dispatch(removePriority(priority.id))}
                 />
             })

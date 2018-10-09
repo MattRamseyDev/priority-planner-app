@@ -6,11 +6,7 @@ const PrioritiesListItem = (props) => (
             value={props.rank + 1}
             onChange={ (e) => 
                 {
-                    if ((e.target.value -1 ) > props.rank){
-                        props.onRankChange(props.rank - 1)
-                    } else {
-                        props.onRankChange(props.rank + 1)
-                    }
+                    props.onRankChange(e.target.value - 1)
                 }
             }
         />

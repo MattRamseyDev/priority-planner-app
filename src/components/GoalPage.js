@@ -1,9 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import GoalList from './GoalList';
 
-const GoalPage = () => (
+const GoalPage = (props) => (
     <div>
-        <h2>Life Goals</h2>
+        <h2>What are you trying to do?</h2>
+        <GoalList />
     </div>
 )
 
-export default GoalPage;
+const mapStateToProps = (state) => ({
+    goals: state.goals
+})
+
+export default connect(mapStateToProps)(GoalPage);

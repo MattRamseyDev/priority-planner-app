@@ -4,6 +4,7 @@ import uuid from 'uuid';
 export const addGoal = (description) => ({
     type: 'ADD_GOAL',
     goal: {
+        id: uuid(),
         description
     }
 })

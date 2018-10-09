@@ -2,6 +2,7 @@ import { createStore, combineReducers } from 'redux';
 import todosReducer from '../reducers/todos';
 import filtersReducer from '../reducers/filters';
 import prioritiesReducer from '../reducers/priorities';
+import goalsReducer from '../reducers/goals';
 
 export default () => {
     // ONE REDUCER FOR EACH ROOT PROPERTY OF STORE
@@ -9,7 +10,8 @@ export default () => {
         combineReducers({
             todos: todosReducer,
             filters: filtersReducer,
-            priorities: prioritiesReducer
+            priorities: prioritiesReducer,
+            goals: goalsReducer
         }),
         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     );

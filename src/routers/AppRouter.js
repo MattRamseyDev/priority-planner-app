@@ -6,7 +6,8 @@ import PrioritiesPage from '../components/PrioritiesPage';
 import Header from '../components/Header';
 import HelpPage from '../components/HelpPage';
 import NotFoundPage from '../components/NotFoundPage';
-import GoalPage from '../components/GoalPage';
+import GoalsPage from '../components/GoalsPage';
+import EditGoalPage from '../components/EditGoalPage';
 
 const AppRouter = () => (
     <BrowserRouter>
@@ -16,7 +17,8 @@ const AppRouter = () => (
                 <Route path='/' component={DashboardPage} exact={true} />
                 <Route path='/todo' component={TodoPage} />
                 <Route path='/priorities' component={PrioritiesPage} />
-                <Route path='/goals' component={GoalPage} />
+                <Route path='/goals' component={GoalsPage} exact={true}/>
+                <Route path='/goals/:id' component={EditGoalPage} />
                 <Route path='/help' component={HelpPage} />
                 <Route component={NotFoundPage} />
             </Switch>

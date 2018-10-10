@@ -4,7 +4,7 @@ import GoalList from './GoalList';
 import AddGoal from './AddGoal';
 import { addGoal } from '../actions/goals';
 
-const GoalPage = (props) => (
+const GoalsPage = (props) => (
     <div>
         <h2>What do you want to do?</h2>
         <GoalList />
@@ -16,4 +16,4 @@ const mapStateToProps = (state) => ({
     goals: state.goals
 })
 
-export default connect(mapStateToProps)(GoalPage);
+export default connect(mapStateToProps)(GoalsPage);

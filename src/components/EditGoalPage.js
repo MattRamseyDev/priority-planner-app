@@ -6,7 +6,6 @@ import {addGoal, editGoal, removeGoal} from '../actions/goals';
 const EditGoalPage = (props) => {
     return (
         <div>
-            <p>{props.goal.description}</p>
             <GoalForm 
                 goal={props.goal}
                 onSubmit={(newGoal) => {

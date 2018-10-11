@@ -27,9 +27,12 @@ export default class GoalForm extends React.Component {
         return (
             <div>
                 <form onSubmit={this.onSubmit}>
+                    <label for='description'>Description:  </label>
                     <input type='text' 
+                    name='description'
                     value={this.state.description}
                     onChange={this.onDescriptionChange}
+                    size='50'
                     />
                     <button>Submit</button>
                 </form>

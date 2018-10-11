@@ -4,10 +4,8 @@ import {Link} from 'react-router-dom';
 const GoalListItem = (props) => (
     <div>
         <p>
-            <Link to={`/goals/${props.id}`}>
-                <span>{props.description}</span>
-            </Link>
-            <button onClick={e => props.onRemove()}>X</button>
+            <span>{props.description}</span>
+            <Link to={`/goals/${props.id}`}><button>Edit</button></Link>
         </p>
     </div>
 )

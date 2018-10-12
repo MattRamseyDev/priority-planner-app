@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import GoalForm from './GoalForm';
 import {addGoal, editGoal, removeGoal} from '../actions/goals';
+import AddTodo from '../components/AddTodo';
+import { addTodo } from '../actions/todos';
 
 const EditGoalPage = (props) => {
     return (
@@ -12,6 +14,9 @@ const EditGoalPage = (props) => {
                     props.dispatch(editGoal(props.goal.id, newGoal))
                     props.history.push('/goals');
                     }}
+            />
+            <AddTodo 
+                onSubmit={(todo) => props.dispatch(addTodo({...todo, goal: props.goal})) }
             />
             <button onClick={() => {
                 props.dispatch(removeGoal(props.goal.id));

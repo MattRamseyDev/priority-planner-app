@@ -10,3 +10,7 @@ export const getTodosInList = (todos, list) => {
         return todo.lists.includes(list);
     })
 }
+
+export const getTodosForGoal = (todos, goal) => {
+    return todos.filter(todo => todo.goal.id === goal.id)
+}

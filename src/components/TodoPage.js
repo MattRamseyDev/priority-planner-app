@@ -20,7 +20,8 @@ const TodoPage = (props) => (
     </div>
 )
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, props) => {
+    console.log(props)
     return {
         todos: state.todos,
         filters: state.filters

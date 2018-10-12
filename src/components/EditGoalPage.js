@@ -4,6 +4,8 @@ import GoalForm from './GoalForm';
 import {addGoal, editGoal, removeGoal} from '../actions/goals';
 import AddTodo from '../components/AddTodo';
 import { addTodo } from '../actions/todos';
+import TodoList from './TodoList';
+import TodoPage from './TodoPage';
 
 const EditGoalPage = (props) => {
     return (
@@ -15,9 +17,10 @@ const EditGoalPage = (props) => {
                     props.history.push('/goals');
                     }}
             />
-            <AddTodo 
-                onSubmit={(todo) => props.dispatch(addTodo({...todo, goal: props.goal})) }
-            />
+            <TodoPage goal={props.goal}/>
+            {/* <AddTodo 
+                onSubmit={(todo) => props.dispatch(addTodo({...todo, goal: {...props.goal}})) }
+            /> */}
             <button onClick={() => {
                 props.dispatch(removeGoal(props.goal.id));
                 props.history.push('/goals');

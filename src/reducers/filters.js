@@ -3,7 +3,7 @@
 const filtersReducerDefualtState = {
     list: 'day',
     completed: false,
-    goal: {}
+    goal: ''
 }
 
 export default (state = filtersReducerDefualtState, action) => {
@@ -11,7 +11,7 @@ export default (state = filtersReducerDefualtState, action) => {
         case 'SET_LIST_FILTER':
             return {...state, list: action.list};
         case 'SET_GOAL_FILTER':
-            return {...state, goal: action.goal}
+            return {...state, goal: action.goal};
         default:
             return state;
     }

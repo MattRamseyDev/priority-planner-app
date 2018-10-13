@@ -11,7 +11,7 @@ const GoalList = (props) => (
             return <GoalListItem 
                 key={goal.id}
                 {...goal}
-                onPickGoal={(e) => props.dispatch(setGoalFilter(goal))}
+                onPickGoal={(e) => props.dispatch(setGoalFilter(goal.id))}
             />
         })}
     </div>

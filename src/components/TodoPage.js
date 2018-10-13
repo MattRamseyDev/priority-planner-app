@@ -13,7 +13,7 @@ const TodoPage = (props) => (
         <TodoList />
         <AddTodo
             onSubmit={(todo) => {
-                const goal = props.goal;
+                const goal = props.goal.id;
                 if(!!Object.values(props.goal).length) {
                     props.dispatch(addTodo({ ...todo, lists: [props.filters.list], goal }))
                 } else {

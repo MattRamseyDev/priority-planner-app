@@ -9,11 +9,14 @@ export default (state = todoReducerDefaultState, action) => {
         case 'ADD_TODO':
             // checks if the todo already exists in another list
                 // if it does, update lists of existing todo instead of creating a new one
+                console.log('action.todo', action.todo)
             let match = state.find(todo => todo.description === action.todo.description);
             if (match && match.completed === false) {
                 match.lists = _.uniq(match.lists.concat(action.todo.lists));
+                match.goal = action.todo.goal;
                 state.map((todo) => {
                     if (todo.id === match.id){
+                        console.log('match: ',match);
                         return {...match};
                     }
                 });

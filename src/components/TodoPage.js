@@ -13,7 +13,12 @@ const TodoPage = (props) => (
         <TodoList />
         <AddTodo
             onSubmit={(todo) => {
-                props.dispatch(addTodo({ ...todo, lists: [props.filters.list] }))
+                const goal = props.goal;
+                if(!!Object.values(props.goal).length) {
+                    props.dispatch(addTodo({ ...todo, lists: [props.filters.list], goal }))
+                } else {
+                    props.dispatch(addTodo({ ...todo, lists: [props.filters.list] }))
+                }
             }}
         />
         <CompletedList />
@@ -21,7 +26,6 @@ const TodoPage = (props) => (
 )
 
 const mapStateToProps = (state, props) => {
-    console.log(props)
     return {
         todos: state.todos,
         filters: state.filters

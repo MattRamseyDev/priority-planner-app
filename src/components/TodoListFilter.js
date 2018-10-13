@@ -20,8 +20,8 @@ const TodoListFilter = (props) => (
 
 const mapStateToProps = (state) => {
     return {
-        dailyTodos: getVisibleTodos(state.todos, {list: 'day', completed: false}),
-        weeklyTodos: getVisibleTodos(state.todos, {list: 'week', completed: false}),
+        dailyTodos: getVisibleTodos(state.todos, {...state.filters, list: 'day'}),
+        weeklyTodos: getVisibleTodos(state.todos, {...state.filters, list: 'week'}),
         filters: state.filters
     }
 }

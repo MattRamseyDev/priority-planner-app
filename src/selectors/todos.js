@@ -1,7 +1,7 @@
 
-export const getVisibleTodos = (todos, {list, completed}) => {
+export const getVisibleTodos = (todos, {list, completed = false, goal = ''}) => {
     return todos.filter((todo) => {
-        return todo.lists.includes(list) && todo.completed === completed;
+        return todo.lists.includes(list) && todo.completed === completed && todo.goal === goal;
     })
 }
 

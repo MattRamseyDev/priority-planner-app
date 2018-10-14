@@ -6,11 +6,12 @@ import {getVisibleTodos} from '../selectors/todos';
 
 const TodoList = (props) => (
     <div>
+        {!props.todos.length && <p>Please add a todo</p>}
         {
             props.todos.map((todo) => {
                 return <TodoListItem 
                 {...todo} 
-                key={todo.id}  
+                key={todo.id}
                 filter={props.filters}
                 onComplete={() => props.dispatch(toggleCompleted(todo.id, todo.completed))}
                 onChange={(update) => props.dispatch(editTodo(todo.id, update))}

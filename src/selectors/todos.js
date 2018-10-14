@@ -11,6 +11,6 @@ export const getTodosInList = (todos, list) => {
     })
 }
 
-export const getTodosForGoal = (todos, goal) => {
-    return todos.filter(todo => todo.goal.id === goal.id)
+export const getTodosForGoal = (todos, goalID) => {
+    return todos.filter(todo => todo.goal.id === goalID)
 }

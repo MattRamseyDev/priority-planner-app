@@ -7,6 +7,7 @@ import {getVisibleTodos} from '../selectors/todos';
 const TodoList = (props) => (
     <div>
         {!props.todos.length && <p>Please add a todo</p>}
+        {console.log('todolist component props',props)}
         {
             props.todos.map((todo) => {
                 return <TodoListItem 
@@ -30,9 +31,9 @@ const TodoList = (props) => (
     </div>
 )
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, props) => {
     return {
-        todos: getVisibleTodos(state.todos, state.filters),
+        todos: getVisibleTodos(state.todos, {...state.filters, goal: props.goal}),
         filters: state.filters
     }
 }

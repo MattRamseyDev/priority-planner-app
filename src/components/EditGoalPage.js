@@ -17,10 +17,11 @@ const EditGoalPage = (props) => {
                     props.history.push('/goals');
                     }}
             />
-            <TodoPage goal={props.goal.id}/>
-            {/* <AddTodo 
-                onSubmit={(todo) => props.dispatch(addTodo({...todo, goal: {...props.goal}})) }
-            /> */}
+            {/* <TodoPage goal={props.goal.id}/> */}
+            <TodoList goal={props.goal.id}/>
+            <AddTodo 
+                onSubmit={(todo) => props.dispatch(addTodo({...todo, goal: props.goal.id})) }
+            />
             <button onClick={() => {
                 props.dispatch(removeGoal(props.goal.id));
                 props.history.push('/goals');

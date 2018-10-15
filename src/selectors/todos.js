@@ -1,7 +1,15 @@
+import _ from 'underscore';
 
-export const getVisibleTodos = (todos, {list, completed = false, goal = ''}) => {
+export const getVisibleTodos = (todos, {list, completed = false, goal= ''}) => {
     return todos.filter((todo) => {
-        return todo.lists.includes(list) && todo.completed === completed && todo.goal === goal;
+        let goalID = '';
+        if (!_.isEmpty({...todo.goal})) {
+            goalID = todo.goal.id;
+        }
+        const listMatch = todo.lists.includes(list);
+        const completedMatch = todo.completed === completed;
+        const goalMatch = goalID === goal;
+        return listMatch && completedMatch && goalMatch;
     })
 }
 

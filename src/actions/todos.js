@@ -4,7 +4,7 @@ import moment from 'moment';
 // Action Generators
 
 // ADD_TODO
-export const addTodo = ({ description, lists = [], goal = '', completed = false, createdAt = moment(), completedAt = undefined }) => ({
+export const addTodo = ({ description, lists = [], goal = {}, completed = false, createdAt = moment(), completedAt = undefined }) => ({
     type: 'ADD_TODO',
     todo: {
         id: uuid(),

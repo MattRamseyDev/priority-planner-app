@@ -20,7 +20,7 @@ const EditGoalPage = (props) => {
             {/* <TodoPage goal={props.goal.id}/> */}
             <TodoList goal={props.goal.id}/>
             <AddTodo 
-                onSubmit={(todo) => props.dispatch(addTodo({...todo, goal: props.goal.id})) }
+                onSubmit={(todo) => props.dispatch(addTodo({...todo, lists: [props.filters.list], goal: props.goal})) }
             />
             <button onClick={() => {
                 props.dispatch(removeGoal(props.goal.id));
@@ -30,8 +30,13 @@ const EditGoalPage = (props) => {
     );
 }
 
-const mapStateToProps = (state, props) => ({
-    goal: state.goals.find((goal) => goal.id === props.match.params.id) // undefined after refresh
-})
+const mapStateToProps = (state, props) => {
+    const goal = state.goals.find((goal) => goal.id === props.match.params.id); // undefined after refresh
+    const filters = {...state.filters, goal: goal.id}
+    return {
+        goal,
+        filters
+    }
+}
 
 export default connect(mapStateToProps)(EditGoalPage);

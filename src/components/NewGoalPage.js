@@ -1,9 +1,17 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import GoalForm from './GoalForm';
+import { addGoal } from '../actions/goals';
 
-const NewGoalPage = () => (
+const NewGoalPage = (props) => (
     <div>
-        testing testing 123
+        <GoalForm 
+            onSubmit={({description}) => {
+                props.dispatch(addGoal(description));
+                props.history.push('/goals')
+            }}
+        />
     </div>
 );
 
-export default NewGoalPage;
+export default connect()(NewGoalPage);

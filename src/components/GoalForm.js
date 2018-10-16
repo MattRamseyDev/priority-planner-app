@@ -4,7 +4,7 @@ export default class GoalForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            description: props.goal.description,
+            description: props.goal ? props.goal.description : '',
             error: ''
         }
     }

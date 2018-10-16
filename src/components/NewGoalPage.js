@@ -7,8 +7,8 @@ const NewGoalPage = (props) => (
     <div>
         <GoalForm 
             onSubmit={({description}) => {
-                props.dispatch(addGoal(description));
-                props.history.push('/goals')
+                const newGoal = props.dispatch(addGoal(description));
+                props.history.push(`/goals/${newGoal.goal.id}`)
             }}
         />
     </div>

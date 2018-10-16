@@ -14,12 +14,13 @@ export default class GoalForm extends React.Component {
     }
     onSubmit = (e) => {
         e.preventDefault();
-        if(!this.state.description) {
+        const goalDescription = e.target.elements.description.value.trim();
+        if(!goalDescription) {
             this.setState(() => ({error: 'Please provide goal description'}))
         } else {
             this.setState(() => ({error: ''}));
             this.props.onSubmit({
-                description: this.state.description
+                description: goalDescription
             })
         }
     }

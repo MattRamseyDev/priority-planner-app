@@ -1,11 +1,12 @@
 import uuid from 'uuid';
 
 // ADD_GOAL
-export const addGoal = (description) => ({
+export const addGoal = (description, todos = []) => ({
     type: 'ADD_GOAL',
     goal: {
         id: uuid(),
-        description
+        description,
+        todos
     }
 });
 

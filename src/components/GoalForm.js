@@ -18,12 +18,23 @@ export default class GoalForm extends React.Component {
     onTodoSubmit = (todo) => {
       this.props.onTodoSubmit(todo)
     }
+    onClick = (e) => {
+      if(!this.state.description) {
+        this.setState(() => ({error: 'Please provide goal description'}));
+      } else {
+        this.setState(() => ({error: ''}));
+        this.props.onSubmit({
+          description: this.state.description,
+        })
+      }
+    }
     render() {
         return (
             <div>
-                <input type='text' name='description' value={this.state.description} onChange={this.onDescriptionChange}/>
+            <input type='text' name='description' value={this.state.description} onChange={this.onDescriptionChange} size='40'/>
                 <TodoList goal={this.state.id} />
                 <AddTodo onSubmit={(todo) => {this.onTodoSubmit(todo)}}/>
+                <button onClick={(e) => {this.onClick(e)}}>Submit</button>
             </div>
         )
     }

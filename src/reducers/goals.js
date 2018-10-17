@@ -19,3 +19,22 @@ export default (state= goalsReducerDefaultState, action) => {
             return state;
     }
 }
+
+// goals schema
+// goals = [
+//   {
+//     id: 'daflksafh',
+//     description: 'do this',
+//     todos: [
+//       'gjkdlskj',
+//       'dsfjalkhe'
+//     ]
+//   }, {
+//     id: 'dsfa',
+//     description: 'do that',
+//     todos: [
+//       'dssssss',
+//       'grrgehrhr'
+//     ]
+//   }
+// ]

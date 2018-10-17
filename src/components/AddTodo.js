@@ -11,7 +11,7 @@ export default class AddTodo extends React.Component {
         e.preventDefault();
         const newTodo = e.target.elements.todo.value.trim();
         if (!newTodo) {
-            this.setState(() => ({error: 'Please enter a new Todo list item'}))
+            this.setState(() => ({error: 'Enter a new Todo list item'}))
         } else {
             this.props.onSubmit({description: newTodo});
             this.setState(() => ({error: ''}));

@@ -12,16 +12,19 @@ const EditGoalPage = (props) => {
         <div>
             <GoalForm 
                 goal={props.goal}
+                onTodoSubmit={(todo) => {
+                  props.dispatch(addTodo({ ...todo, lists: [props.filters.list], goal: props.goal}))
+                }}
                 onSubmit={(newGoal) => {
                     props.dispatch(editGoal(props.goal.id, newGoal))
                     props.history.push('/goals');
                     }}
             />
             {/* <TodoPage goal={props.goal.id}/> */}
-            <TodoList goal={props.goal.id}/>
-            <AddTodo 
+            {/* <TodoList goal={props.goal.id}/> */}
+            {/* <AddTodo 
                 onSubmit={(todo) => props.dispatch(addTodo({...todo, lists: [props.filters.list], goal: props.goal})) }
-            />
+            /> */}
             <button onClick={() => {
                 props.dispatch(removeGoal(props.goal.id));
                 props.history.push('/goals');

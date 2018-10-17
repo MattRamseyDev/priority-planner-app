@@ -17,6 +17,13 @@ export const editGoal = (id, updates) => ({
     updates
 })
 
+//ADD_GOAL_TODO
+export const addGoalTodo = (id, todoId) => ({
+  type: 'ADD_GOAL_TODO',
+  id,
+  todoId
+})
+
 // REMOVE_GOAL 
 export const removeGoal = (id) => ({
     type: 'REMOVE_GOAL',

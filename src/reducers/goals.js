@@ -12,7 +12,15 @@ export default (state= goalsReducerDefaultState, action) => {
                 } else {
                     return goal;
                 }
-            })
+            });
+          case 'ADD_GOAL_TODO':
+            return state.map((goal) => {
+              if (goal.id === action.id) {
+                return { ...goal, todos: [...goal.todos, action.todoId]};
+              } else {
+                return goal;
+              }
+            });
         case 'REMOVE_GOAL':
             return state.filter(goal => goal.id !== action.id);
         default:

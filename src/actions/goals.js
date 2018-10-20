@@ -24,6 +24,13 @@ export const addGoalTodo = (id, todoId) => ({
   todoId
 })
 
+//REMOVE_GOAL_TODO
+export const removeGoalTodo = (goalId, todoId) => ({
+  type: 'REMOVE_GOAL_TODO',
+  goalId, 
+  todoId
+})
+
 // REMOVE_GOAL 
 export const removeGoal = (id) => ({
     type: 'REMOVE_GOAL',

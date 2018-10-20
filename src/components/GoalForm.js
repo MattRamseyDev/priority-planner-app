@@ -31,10 +31,10 @@ export default class GoalForm extends React.Component {
     render() {
         return (
             <div>
-            <input type='text' name='description' value={this.state.description} onChange={this.onDescriptionChange} size='40'/>
-                <TodoList goal={this.state.id} />
-                <AddTodo onSubmit={(todo) => {this.onTodoSubmit(todo)}}/>
-                <button onClick={(e) => {this.onClick(e)}}>Submit</button>
+              <input type='text' name='description' value={this.state.description} onChange={this.onDescriptionChange} size='40'/>
+              <TodoList goal={this.state.id} />
+              <AddTodo onSubmit={(todo) => {this.onTodoSubmit(todo)}}/>
+              <button onClick={(e) => {this.onClick(e)}}>Done</button>
             </div>
         )
     }

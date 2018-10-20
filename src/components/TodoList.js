@@ -4,6 +4,7 @@ import TodoListItem from './TodoListItem';
 import {removeTodo, editTodo, toggleCompleted} from '../actions/todos';
 import {getVisibleTodos} from '../selectors/todos';
 import _ from 'underscore';
+import { removeGoalTodo } from '../actions/goals';
 
 const TodoList = (props) => (
     <div>
@@ -23,6 +24,7 @@ const TodoList = (props) => (
                         props.dispatch(editTodo(todo.id, update))
                     } else {
                         // else remove todo altogether
+                      if (props.filters.goal) { props.dispatch(removeGoalTodo(props.filters.goal, todo.id)) };
                         props.dispatch(removeTodo({id: todo.id}))
                     }
                     }}

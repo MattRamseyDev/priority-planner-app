@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import TodoListItem from './TodoListItem';
 import {removeTodo, editTodo, toggleCompleted} from '../actions/todos';
-import {getVisibleTodos} from '../selectors/todos';
+import {getVisibleTodosForGoal, getVisibleTodos} from '../selectors/todos';
 import _ from 'underscore';
 import { removeGoalTodo } from '../actions/goals';
 
@@ -37,11 +37,16 @@ const TodoList = (props) => (
 const mapStateToProps = (state, props) => {
     let filters = state.filters;
     if (props.goal){
-        filters = {...filters, goal: props.goal}
-    }
-    return {
+      filters = { ...filters, goal: props.goal };      
+      return {
+        todos: getVisibleTodosForGoal(state.todos, filters),
+        filters
+      }
+    } else {
+      return {
         todos: getVisibleTodos(state.todos, filters),
         filters
+      }
     }
 }
 

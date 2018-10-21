@@ -1,6 +1,6 @@
 import _ from 'underscore';
 
-export const getVisibleTodos = (todos, {list, completed = false, goal= ''}) => {
+export const getVisibleTodosForGoal = (todos, {list, completed = false, goal= ''}) => {
     return todos.filter((todo) => {
         let goalID = '';
         if (!_.isEmpty({...todo.goal})) {
@@ -11,6 +11,14 @@ export const getVisibleTodos = (todos, {list, completed = false, goal= ''}) => {
         const goalMatch = goalID === goal;
         return listMatch && completedMatch && goalMatch;
     })
+}
+
+export const getVisibleTodos = (todos, { list, completed = false}) => {
+  return todos.filter((todo) => {
+    const listMatch = todo.lists.includes(list);
+    const completedMatch = todo.completed === completed;
+    return listMatch && completedMatch;
+  })
 }
 
 export const getTodosInList = (todos, list) => {

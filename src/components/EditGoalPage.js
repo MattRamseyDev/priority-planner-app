@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import GoalForm from './GoalForm';
 import {addGoal, editGoal, removeGoal, addGoalTodo} from '../actions/goals';
 import { addTodo } from '../actions/todos';
-import { getVisibleTodos } from '../selectors/todos';
+import { getVisibleTodosForGoal } from '../selectors/todos';
 
 const EditGoalPage = (props) => {
     return (
@@ -30,7 +30,7 @@ const EditGoalPage = (props) => {
 const mapStateToProps = (state, props) => {
     const goal = state.goals.find((goal) => goal.id === props.match.params.id); // undefined after refresh
     const filters = {...state.filters, goal: goal.id}
-    const todos = getVisibleTodos(state.todos, filters);
+    const todos = getVisibleTodosForGoal(state.todos, filters);
     return {
         goal,
         todos,

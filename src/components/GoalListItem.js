@@ -5,7 +5,7 @@ const GoalListItem = (props) => (
     <div>
         <p>
             <span>{props.description}</span>
-            <Link to={`/goals/${props.id}`}><button>Edit</button></Link>
+            <Link to={`/goals/${props.id}`}><button>Details</button></Link>
         </p>
     </div>
 )

@@ -1,7 +1,7 @@
 
 
 const filtersReducerDefualtState = {
-    list: 'day',
+    list: '',
     completed: false,
     goal: ''
 }

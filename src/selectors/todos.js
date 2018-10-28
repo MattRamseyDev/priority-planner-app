@@ -6,7 +6,7 @@ export const getVisibleTodosForGoal = (todos, {list, completed = false, goal= ''
         if (!_.isEmpty({...todo.goal})) {
             goalID = todo.goal.id;
         }
-        const listMatch = todo.lists.includes(list);
+        const listMatch = list ? todo.lists.includes(list) : true ;
         const completedMatch = todo.completed === completed;
         const goalMatch = goalID === goal;
         return listMatch && completedMatch && goalMatch;

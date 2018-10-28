@@ -19,7 +19,7 @@ const TodoPage = (props) => (
                 }
             }}
         />
-        <TodoList />
+        <TodoList list='day'/>
         <CompletedList />
     </div>
 )

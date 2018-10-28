@@ -10,21 +10,21 @@ const TodoListItem = (props) => (
         />
         <button onClick={(e) => {props.onComplete();}}
         >Done</button>
-        {/* {props.filter.list === 'week' && !props.lists.includes('day') &&  
+        {!props.lists.includes('day') &&  
             <button onClick={(e) => {
                 e.preventDefault();
                 props.onChangeList({ lists: [...props.lists, 'day'] })
             }}
-            >Add To Daily List</button>
-        } */}
+            >Do Today</button>
+        }
             <button onClick={(e) => {
               e.preventDefault();
                 const newLists = props.lists.filter(item => item != props.filter.list)
                 props.onChangeList({lists: [...newLists]})
             }}
 
-            >Remove from list</button>
-        {props.goal.id && <span>Goal: {props.goal.description}</span>}
+            >Remove</button>
+        {/* {props.goal.id && <span>Goal: {props.goal.description}</span>} */}
         
     </div>
 )

@@ -10,6 +10,7 @@ const GoalList = (props) => (
         {props.goals.map((goal) => {
             return <GoalListItem 
                 key={goal.id}
+                goal={goal}
                 {...goal}
             />
         })}

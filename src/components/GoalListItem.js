@@ -1,13 +1,27 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { connect } from 'react-redux';
+import TodoForm from './TodoForm';
+import { addTodo } from '../actions/todos';
+
 
 const GoalListItem = (props) => (
     <div>
-        <p>
-            <span>{props.description}</span>
-            <Link to={`/goals/${props.id}`}><button>Details</button></Link>
-        </p>
+        <p>{props.description}</p>
+        <TodoForm goal={props.id}
+          onTodoSubmit={(todo) => {
+            props.dispatch(addTodo({ ...todo, goal: props.goal }));
+            // props.dispatch(addGoalTodo(props.id, newTodo.todo.id));
+          }}
+        />
+        <Link to={`/goals/${props.id}`}><button>Edit Goal</button></Link>
     </div>
 )
 
-export default GoalListItem;
+const mapStateToProps = (state, props) => {
+  return {
+    filters: state.filters,
+  }
+}
+
+export default connect(mapStateToProps)(GoalListItem);
